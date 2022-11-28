@@ -23,26 +23,7 @@ directory for this notebook is `reports/`, so we have to go up a
 directory to get to `data/`.
 
 ``` r
-dir()
-```
-
-    [1] "paired_dotplot_tutorial_files"     "paired_dotplot_tutorial.html"     
-    [3] "paired_dotplot_tutorial.qmd"       "paired_dotplot_tutorial.rmarkdown"
-
-``` r
 library(tidyverse, verbose=FALSE)
-```
-
-    ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-    ✔ ggplot2 3.4.0      ✔ purrr   0.3.5 
-    ✔ tibble  3.1.8      ✔ dplyr   1.0.10
-    ✔ tidyr   1.2.1      ✔ stringr 1.4.1 
-    ✔ readr   2.1.3      ✔ forcats 0.5.2 
-    ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-    ✖ dplyr::filter() masks stats::filter()
-    ✖ dplyr::lag()    masks stats::lag()
-
-``` r
 theme_set(theme_classic()) # sets a graphical theme
 GH29 <- readRDS("../data/GH29_paired_homologs.rds") #
 ```
@@ -105,7 +86,7 @@ p <- ggplot(GH29, aes(x=depth, y=total_energy)) +
 print(p)
 ```
 
-![](paired_dotplot_tutorial_files/figure-gfm/unnamed-chunk-5-1.png)
+![](paired_dotplot_tutorial_files/figure-gfm/unnamed-chunk-4-1.png)
 
 This is basically what we want, but we need a way to connect pairs of
 dots.
@@ -123,7 +104,7 @@ p <- p +
 print(p)
 ```
 
-![](paired_dotplot_tutorial_files/figure-gfm/unnamed-chunk-6-1.png)
+![](paired_dotplot_tutorial_files/figure-gfm/unnamed-chunk-5-1.png)
 
 The lines are connected! All we need to do is to color them by whether
 they’re more negative in deep sediment or surface sediment.
@@ -150,7 +131,7 @@ ddg_plot <- function(df) {
 ddg_plot(GH29)
 ```
 
-![](paired_dotplot_tutorial_files/figure-gfm/unnamed-chunk-7-1.png)
+![](paired_dotplot_tutorial_files/figure-gfm/unnamed-chunk-6-1.png)
 
 Beautiful. The colors, by the way, are “tertiary” colors of the official
 UT color scheme. They’re semi-secret, but I’ll give them to you if you
@@ -210,7 +191,7 @@ p <- ddg_plot(GH29)
 print(p)
 ```
 
-![](paired_dotplot_tutorial_files/figure-gfm/unnamed-chunk-8-1.png)
+![](paired_dotplot_tutorial_files/figure-gfm/unnamed-chunk-7-1.png)
 
 One last important thing about saving plots in R: the `ggsave()`
 function allows you to set the actual dimensions of a saved plot (in

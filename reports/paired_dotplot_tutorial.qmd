@@ -18,12 +18,7 @@ However, we want to link pairs of enzymes, so those enzymes will need a variable
 
 I've stored the data as a binary `.rds` file. Note that the working directory for this notebook is `reports/`, so we have to go up a directory to get to `data/`. 
 
-```{r}
-dir()
-```
-
-
-```{r}
+```{r, message=FALSE}
 library(tidyverse, verbose=FALSE)
 theme_set(theme_classic()) # sets a graphical theme
 GH29 <- readRDS("../data/GH29_paired_homologs.rds") #
